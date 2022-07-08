@@ -7,6 +7,7 @@ const client = new Client({
   multiDevice: true,
   popup: true,
   licenseKey: process.env.Lisences,
+  useChrome: true,
 });
 
 client.start().then((clientInstance)=>{

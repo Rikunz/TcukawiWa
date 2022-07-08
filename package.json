@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/MoonLGH/TcukawiWa#readme",
   "devDependencies": {
+    "@types/mime-types": "^2.1.1",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",
     "eslint": "^8.4.1",
@@ -30,6 +31,7 @@
     "@discordjs/collection": "^0.7.0",
     "@open-wa/wa-automate": "^4.42.4",
     "dotenv": "^16.0.1",
-    "fast-speedtest-api": "github:honzahommer/fast-speedtest-api"
+    "fast-speedtest-api": "github:honzahommer/fast-speedtest-api",
+    "mime-types": "^2.1.35"
   }
 }
