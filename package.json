@@ -2,9 +2,11 @@
   "name": "tcukawiwa",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "output/index.js",
+  "type": "module",
   "scripts": {
     "build": "tsc",
+    "start": "npm run build && node output/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,6 +28,8 @@
   },
   "dependencies": {
     "@discordjs/collection": "^0.7.0",
-    "@open-wa/wa-automate": "^4.42.4"
+    "@open-wa/wa-automate": "^4.42.4",
+    "dotenv": "^16.0.1",
+    "fast-speedtest-api": "github:honzahommer/fast-speedtest-api"
   }
 }

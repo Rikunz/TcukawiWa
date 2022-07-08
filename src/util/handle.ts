@@ -1,16 +1,16 @@
 import {readdirSync} from "fs";
 import {Collection} from "@discordjs/collection";
 import {Message} from "@open-wa/wa-automate";
-import {Client} from "./extend/Client";
+import {Client} from "./extend/Client.js";
 
 export async function LoadCommands() {
   const commands = new Collection<string, commandInterface>();
-  const dirs = readdirSync("./src/commands/", {
+  const dirs = readdirSync("./output/commands/", {
     withFileTypes: true,
   }).filter((dirent) => dirent.isDirectory()).map((dirent) => dirent.name);
 
   for (const folder of dirs) {
-    for (const file of readdirSync("./src/commands/" + folder).filter((file) => file.endsWith(".ts"))) {
+    for (const file of readdirSync("./output/commands/" + folder).filter((file) => file.endsWith(".ts") || file.endsWith(".js"))) {
       const command = await import(`../commands/${folder}/${file}`);
       commands.set(command.name.toLowerCase(), {
         name: command.name.toLowerCase(),

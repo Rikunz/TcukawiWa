@@ -1,7 +1,7 @@
 import Collection from "@discordjs/collection";
 import {ConfigObject, AdvancedConfig, create, Client as WaClient, Message} from "@open-wa/wa-automate";
-import {prefix} from "../settings";
-import {LoadCommands, commandInterface} from "../handle";
+import {prefix} from "../settings.js";
+import {LoadCommands, commandInterface} from "../handle.js";
 
 export class Client {
   options: ConfigObject | AdvancedConfig | undefined;
