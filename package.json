@@ -32,6 +32,7 @@
     "@open-wa/wa-automate": "^4.42.4",
     "dotenv": "^16.0.1",
     "fast-speedtest-api": "github:honzahommer/fast-speedtest-api",
-    "mime-types": "^2.1.35"
+    "mime-types": "^2.1.35",
+    "mongoose": "^6.4.4"
   }
 }

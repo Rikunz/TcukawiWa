@@ -9,4 +9,4 @@ output
 # end managed by open-wa
 
 .env
-chrome
+index.js
