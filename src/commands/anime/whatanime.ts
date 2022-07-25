@@ -14,6 +14,7 @@ export async function run(client:Client, message:Message) {
     console.log(mediaData.byteLength);
     // const imgBS4 = `data:${msg.mimetype};base64,${mediaData.toString('base64')}`
     client.clientInstances!.sendText(msg.chatId, "Searching....");
+    console.log(msg.chatId);
     try {
       fetch("https://api.trace.moe/search", {
         method: "POST",
@@ -65,7 +66,7 @@ export async function run(client:Client, message:Message) {
             text += `\`${formatTime(from)}\`\n`;
             text += `\`${(similarity * 100).toFixed(1)}% similarity\`\n`;
 
-            console.log(msg.chatId)
+            console.log(msg.chatId);
             client.clientInstances!.sendText(msg.chatId, text);
             client.clientInstances!.sendFileFromUrl(msg.chatId, video, `${filename}.mp4`, text, msg.id);
           }).catch( (err) => {
