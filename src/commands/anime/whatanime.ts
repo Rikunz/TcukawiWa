@@ -64,11 +64,13 @@ export async function run(client:Client, message:Message) {
             text += `\`${filename.replace(/`/g, "``")}\`\n`;
             text += `\`${formatTime(from)}\`\n`;
             text += `\`${(similarity * 100).toFixed(1)}% similarity\`\n`;
+
+            console.log(msg.chatId)
             client.clientInstances!.sendText(msg.chatId, text);
             client.clientInstances!.sendFileFromUrl(msg.chatId, video, `${filename}.mp4`, text, msg.id);
           }).catch( (err) => {
             console.log(err);
-            client.clientInstances!.sendText(message.chatId, "Error, image to beeg");
+            client.clientInstances!.sendText(message.chatId, "Error on sending the video");
           });
     } catch (e) {
       client.clientInstances!.sendText(message.chatId, "Error, Image to beeg");
