@@ -41,6 +41,7 @@ export async function run(client:Client, message:Message) {
 
   const newModel = new model(options);
   await newModel.save();
+  client.logger(`Tag saved as ${options.key}`, "Tags");
 
   return client.clientInstances!.sendText(message.chatId, `${options.key} Saved on ${options.isGlobal ? "Global" : ""} ${options.isGroup ? "Group with group of This group" : ""} `);
 }

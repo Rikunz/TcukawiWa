@@ -18,3 +18,4 @@ export async function run(client:Client, message:Message) {
 
 export const name = "sticker";
 export const description = "stickerify stuff";
+export const alias = ["stiker"];
