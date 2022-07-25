@@ -30,6 +30,7 @@
             "double"
         ],
         "@typescript-eslint/await-thenable": 2,
-        "linebreak-style":"off"
+        "linebreak-style":"off",
+        "camelcase":"off"
     }
 }
