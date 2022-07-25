@@ -9,4 +9,6 @@ output
 # end managed by open-wa
 
 .env
-index.js
+index.j
+
+core.*
