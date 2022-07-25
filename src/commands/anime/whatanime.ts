@@ -14,7 +14,6 @@ export async function run(client:Client, message:Message) {
     console.log(mediaData.byteLength);
     // const imgBS4 = `data:${msg.mimetype};base64,${mediaData.toString('base64')}`
     client.clientInstances!.sendText(msg.chatId, "Searching....");
-    console.log(msg.chatId);
     try {
       fetch("https://api.trace.moe/search", {
         method: "POST",
