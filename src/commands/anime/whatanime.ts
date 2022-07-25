@@ -13,7 +13,7 @@ export async function run(client:Client, message:Message) {
     }
     console.log(mediaData.byteLength);
     // const imgBS4 = `data:${msg.mimetype};base64,${mediaData.toString('base64')}`
-    client.clientInstances!.reply(msg.chatId, "Searching....", msg.id);
+    client.clientInstances!.sendText(msg.chatId, "Searching....");
     try {
       fetch("https://api.trace.moe/search", {
         method: "POST",
@@ -23,7 +23,7 @@ export async function run(client:Client, message:Message) {
           .then(async (resolt) => {
             if (!resolt.result || (resolt.result && resolt.result.length <= 0)) {
               console.log(resolt);
-              return client.clientInstances!.reply(msg.chatId, "Maaf, saya tidak tau ini anime apa", msg.id);
+              return client.clientInstances!.sendText(msg.chatId, "Sorry, could not find the similar anime");
             }
 
             const searchResult = resolt;
@@ -64,17 +64,17 @@ export async function run(client:Client, message:Message) {
             text += `\`${filename.replace(/`/g, "``")}\`\n`;
             text += `\`${formatTime(from)}\`\n`;
             text += `\`${(similarity * 100).toFixed(1)}% similarity\`\n`;
-            client.clientInstances!.reply(msg.chatId, text, msg.id);
+            client.clientInstances!.sendText(msg.chatId, text);
             client.clientInstances!.sendFileFromUrl(msg.chatId, video, `${filename}.mp4`, text, msg.id);
           }).catch( (err) => {
             console.log(err);
-            client.clientInstances!.reply(message.chatId, "Error, kayaknya kebesaran gambarnya", message.id);
+            client.clientInstances!.sendText(message.chatId, "Error, image to beeg");
           });
     } catch (e) {
-      client.clientInstances!.reply(message.chatId, "Error, kayaknya kebesaran gambarnya", message.id);
+      client.clientInstances!.sendText(message.chatId, "Error, Image to beeg");
     }
   } else {
-    client.clientInstances!.reply(message.chatId, "Gimmie some pic stupid", message.id);
+    client.clientInstances!.sendText(message.chatId, "Gimmie some pic stupid");
   }
 }
 
