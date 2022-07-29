@@ -63,14 +63,14 @@ export class Client {
     return {text, isCommand, args, first};
   }
 
-  handleCommand(client:this, msg:Message) {
-    const parsedMessage = client.parseMessage(msg);
+  handleCommand(msg:Message) {
+    const parsedMessage = this.parseMessage(msg);
     if (parsedMessage.isCommand) {
-      const commands = client.commands?.find((o)=> o.name === parsedMessage.first);
+      const commands = this.commands?.find((o)=> o.name === parsedMessage.first);
       if (!commands) {
         return;
       }
-      commands?.run(client, msg);
+      commands?.run(this, msg);
       this.logger(`Runned ${commands!.name}`, "command");
     }
   }

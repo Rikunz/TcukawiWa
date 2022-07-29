@@ -16,7 +16,7 @@ const client = new Client({
 client.start().then((clientInstance)=>{
   clientInstance.onAnyMessage((msg)=>{
     try {
-      client.handleCommand(client, msg);
+      client.handleCommand(msg);
     } catch (error) {
       if (error instanceof Error) {
         client.logger(`Error founded on ${msg.body} ${error.message}`, "ERROR DETECTED");
