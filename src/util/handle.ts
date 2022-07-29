@@ -14,7 +14,7 @@ export async function LoadCommands() {
       const command = await import(`../commands/${folder}/${file}`);
       commands.set(command.name.toLowerCase(), {
         name: command.name.toLowerCase(),
-        alias: command.alias || [],
+        alias: command.alias.map((c:string) => c.toLowerCase()) || [],
         category: folder,
         filepath: file,
         description: command.description || "",

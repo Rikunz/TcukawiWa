@@ -55,23 +55,21 @@ export class Client {
     const args = isPrefixed ? text.slice(prefix.length).split(" ") : text.split(" ");
     const first = args.shift()?.toLowerCase();
     let isCommand = false;
+    let commands;
     if (isPrefixed) {
-      if (this.commands!.find((o)=>o.name === first)) {
+      commands = this.commands!.find((o)=>o.name === first) || this.commands!.find((c) => c.alias.includes(first!.toLowerCase()));
+      if (commands) {
         isCommand = true;
       }
     }
-    return {text, isCommand, args, first};
+    return {text, isCommand, args, first, commands};
   }
 
   handleCommand(msg:Message) {
     const parsedMessage = this.parseMessage(msg);
     if (parsedMessage.isCommand) {
-      const commands = this.commands?.find((o)=> o.name === parsedMessage.first);
-      if (!commands) {
-        return;
-      }
-      commands?.run(this, msg);
-      this.logger(`Runned ${commands!.name}`, "command");
+      parsedMessage.commands!.run(this, msg);
+      this.logger(`Runned ${parsedMessage.commands!.name}`, "command");
     }
   }
 
