@@ -68,8 +68,8 @@ export class Client {
   handleCommand(msg:Message) {
     const parsedMessage = this.parseMessage(msg);
     if (parsedMessage.isCommand) {
-      parsedMessage.commands!.run(this, msg);
       this.logger(`Runned ${parsedMessage.commands!.name}`, "command");
+      parsedMessage.commands!.run(this, msg);
     }
   }
 
