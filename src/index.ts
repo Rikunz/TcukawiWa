@@ -15,6 +15,12 @@ const client = new Client({
 
 client.start().then((clientInstance)=>{
   clientInstance.onAnyMessage((msg)=>{
-    client.handleCommand(client, msg);
+    try {
+      client.handleCommand(client, msg);
+    } catch (error) {
+      if (error instanceof Error) {
+        client.logger(`Error founded on ${msg.body} ${error.message}`, "ERROR DETECTED");
+      }
+    }
   });
 });

@@ -18,7 +18,7 @@ export async function run(client:Client, message:Message) {
       fetch("https://api.trace.moe/search", {
         method: "POST",
         body: mediaData,
-        headers: {"Content-Type": "image/jpeg"},
+        headers: {"Content-Type": msg.mimetype!},
       }).then((res) => res.json())
           .then(async (resolt) => {
             if (!resolt.result || (resolt.result && resolt.result.length <= 0)) {
