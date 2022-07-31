@@ -13,9 +13,13 @@ export class Client {
   clientInstances?: WaClient;
   commands?: Collection<string, commandInterface>;
   MongoUrl?: string;
+  Whitelist?: boolean;
+  SoftWhitelist?: boolean;
   constructor(options?:ConfigObject|AdvancedConfig, AdvanceOptions?:MoreOptions) {
     this.MongoUrl = AdvanceOptions?.mongoUrl;
     this.options = options;
+    this.Whitelist = false;
+    this.SoftWhitelist = false;
   }
 
   async start() {
@@ -26,6 +30,11 @@ export class Client {
     }
     this.clientInstances = Client;
     return this.clientInstances;
+  }
+
+  setWhitelist(InitVal:boolean, SoftWhitelist?:boolean) {
+    this.SoftWhitelist = SoftWhitelist || false;
+    this.Whitelist = InitVal;
   }
 
   private async assignProperty() {
@@ -68,8 +77,16 @@ export class Client {
   handleCommand(msg:Message) {
     const parsedMessage = this.parseMessage(msg);
     if (parsedMessage.isCommand) {
+      if (this.Whitelist && !this.SoftWhitelist && !msg.fromMe) {
+        this.clientInstances?.sendText(msg.chatId, "Whitelist Mode is on!, you cant use it now");
+        return;
+      } else if (this.Whitelist && this.SoftWhitelist && !msg.sender.isMyContact && !msg.fromMe) {
+        this.clientInstances?.sendText(msg.chatId, "Whitelist Mode is on!, But soft Whitelist is also on, you can only use command if you added to this account contact");
+        return;
+      }
       this.logger(`Runned ${parsedMessage.commands!.name}`, "command");
       parsedMessage.commands!.run(this, msg);
+      return;
     }
   }
 
