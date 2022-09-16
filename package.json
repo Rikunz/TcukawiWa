@@ -30,6 +30,7 @@
   "dependencies": {
     "@discordjs/collection": "^0.7.0",
     "@open-wa/wa-automate": "^4.42.4",
+    "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "fast-speedtest-api": "github:honzahommer/fast-speedtest-api",
     "mime-types": "^2.1.35",

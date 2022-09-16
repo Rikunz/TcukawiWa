@@ -15,6 +15,8 @@ export class Client {
   MongoUrl?: string;
   Whitelist?: boolean;
   SoftWhitelist?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  secret: any;
   constructor(options?:ConfigObject|AdvancedConfig, AdvanceOptions?:MoreOptions) {
     this.MongoUrl = AdvanceOptions?.mongoUrl;
     this.options = options;
@@ -30,6 +32,13 @@ export class Client {
     }
     this.clientInstances = Client;
     return this.clientInstances;
+  }
+
+  setSecret(string:string) {
+    if (string.length > 1) {
+      this.secret = JSON.parse(string);
+    }
+    return this;
   }
 
   setWhitelist(InitVal:boolean, SoftWhitelist?:boolean) {
@@ -58,6 +67,7 @@ export class Client {
         }
       }
     }
+
 
     const isPrefixed= text.startsWith(prefix) ? true : false;
 

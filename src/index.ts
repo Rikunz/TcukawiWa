@@ -13,7 +13,7 @@ const client = new Client({
   mongoUrl: settings.MongoURL,
 });
 
-client.start().then((clientInstance)=>{
+client.setSecret(process.env.Secret as string || "").start().then((clientInstance)=>{
   clientInstance.onAnyMessage((msg)=>{
     try {
       client.handleCommand(msg);
