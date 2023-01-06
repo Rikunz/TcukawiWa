@@ -3,8 +3,6 @@ image:
 tasks:
   - init: |
       npm install
-      npm i ts-node -g
-    command: ts-node src/index.js
 ports:
   - port: 3000
     onOpen: open-browser
