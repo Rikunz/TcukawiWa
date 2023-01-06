@@ -11,7 +11,7 @@ export async function run(client:Client, message:Message) {
 
   const {args} = client.parseMessage(message);
 
-  if (args.length > 1) {
+  if (args.length > 0) {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: args.join(" "),
