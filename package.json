@@ -34,6 +34,7 @@
     "dotenv": "^16.0.1",
     "fast-speedtest-api": "github:honzahommer/fast-speedtest-api",
     "mime-types": "^2.1.35",
-    "mongoose": "^6.4.4"
+    "mongoose": "^6.4.4",
+    "openai": "^3.1.0"
   }
 }
