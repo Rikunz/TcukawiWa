@@ -6,7 +6,7 @@ export async function run(client:Client, message:Message) {
   const {args} = client.parseMessage(message);
 
   if(args.length < 1) return client.clientInstances!.sendText(message.chatId,"Please provide a youtube url")
-  if(ytdl.validateURL(args[0])) return client.clientInstances!.sendText(message.chatId,"Please provide a youtube url")
+  if(!ytdl.validateURL(args[0])) return client.clientInstances!.sendText(message.chatId,"Please provide a youtube url")
   try {
     let info = await ytdl.getBasicInfo(args[0])
     let title = info.videoDetails.title
