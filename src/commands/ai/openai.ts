@@ -16,7 +16,7 @@ export async function run(client:Client, message:Message) {
       model: "text-davinci-003",
       prompt: args.join(" "),
       temperature: 0.8,
-      max_tokens: 64,
+      max_tokens: 1024,
       top_p: 1,
       frequency_penalty: 0.5,
       presence_penalty: 0,
