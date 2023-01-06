@@ -17,7 +17,7 @@ export async function run(client:Client, message:Message) {
     })
     stream.on('end', () => {
         let buf = Buffer.concat(bufs)
-        client.clientInstances?.sendFile(message.chatId,bufferToDataUrl("audio/mpeg",buf),title+".mp3","youtube")
+        client.clientInstances?.sendPtt(message.chatId,bufferToDataUrl("audio/mpeg",buf),message.id)
     })
     } catch (err){
         return client.clientInstances!.sendText(message.chatId,"Error has been found")
