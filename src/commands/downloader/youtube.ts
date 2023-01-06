@@ -17,7 +17,7 @@ export async function run(client:Client, message:Message) {
     })
     stream.on('end', () => {
         let buf = Buffer.concat(bufs)
-        client.clientInstances?.sendImage(message.chatId,bufferToDataUrl("video/mp4",buf),title+".mp4","youtube")
+        client.clientInstances?.sendImage(message.chatId,bufferToDataUrl("video/mp4",buf),title+".mp4","here u go")
     })
     } catch (err){
         return client.clientInstances!.sendText(message.chatId,"Error has been found")

@@ -17,7 +17,7 @@ export async function run(client:Client, message:Message) {
     })
     stream.on('end', () => {
         let buf = Buffer.concat(bufs)
-        client.clientInstances?.sendPtt(message.chatId,bufferToDataUrl("audio/mpeg",buf),message.id)
+        client.clientInstances?.sendPtt(message.chatId,bufferToDataUrl("audio/mp3",buf),message.quotedMsg!.id)
     })
     } catch (err){
         return client.clientInstances!.sendText(message.chatId,"Error has been found")
@@ -30,4 +30,4 @@ function bufferToDataUrl(mimetype: string, buffer: Buffer): string {
 
 export const name = "youtubemp3";
 export const description = "download youtube video";
-export const alias = ["ymp3"];
+export const alias = ["ymp3","ytdlmp3"];
