@@ -1,7 +1,6 @@
 import {Message} from "@open-wa/wa-automate";
 import {Client} from "../../util/extend/Client";
-import {instagram} from "../../util/instagram"
-import axios from "axios"
+import {instagram} from "../../util/instagram.js"
 export async function run(client:Client, message:Message) {
   const {args} = client.parseMessage(message);
   const resInsta = await instagram(args[0]);
