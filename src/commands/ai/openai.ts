@@ -12,6 +12,10 @@ export async function run(client:Client, message:Message) {
   const {args} = client.parseMessage(message);
 
   if (args.length > 0) {
+    if (args.join(" ").includes("eval") && !message.fromMe) {
+      client.clientInstances!.sendText(message.chatId, "opini bagus, eval blocked from ai");
+      return;
+    }
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: args.join(" "),
