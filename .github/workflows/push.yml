@@ -1,0 +1,27 @@
+name: Publish Json to Website
+
+on:
+  push:
+    branches: # triggers on any push to master
+    - main
+
+jobs:
+  loadCmds:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set Node.js 14
+      uses: actions/setup-node@v2.4.1
+      with:
+        node-version: 14
+    - name: Install dependencies
+      run: npm i
+    - name: loadCmd
+      run: npm run loadCmd
+    - name: Deploy
+      uses: s0/git-publish-subdir-action@develop
+      env:
+        REPO: self
+        BRANCH: ready-sch
+        FOLDER: dist
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
