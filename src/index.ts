@@ -1,7 +1,9 @@
 import {Client} from "./util/extend/Client.js";
 import "dotenv/config";
 import * as settings from "./util/settings.js";
+import {start} from "./webView/app.js";
 
+start(8080);
 const client = new Client({
   authTimeout: 0,
   qrTimeout: 0,

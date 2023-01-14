@@ -2,6 +2,7 @@ node_modules
 _IGNORE_session
 **.data.json
 output
+dist
 
 # managed by open-wa
 **.node-persist**
@@ -9,6 +10,5 @@ output
 # end managed by open-wa
 
 .env
-index.j
 
 core.*
