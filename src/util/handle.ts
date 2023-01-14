@@ -22,6 +22,7 @@ export async function LoadCommands() {
       } as commandInterface);
     }
   }
+  console.log("[Handler]"+ commands.size + " Loaded");
   return commands;
 }
 

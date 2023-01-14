@@ -3,8 +3,8 @@ import "dotenv/config";
 import * as settings from "./util/settings.js";
 import {start} from "./webView/app.js";
 
-start(8080);
-const client = new Client({
+start(8888);
+export const client = new Client({
   authTimeout: 0,
   qrTimeout: 0,
   multiDevice: true,
@@ -14,6 +14,8 @@ const client = new Client({
 }, {
   mongoUrl: settings.MongoURL,
 });
+
+export const uptime = new Date();
 
 client.setSecret(process.env.Secret as string || "").start().then((clientInstance)=>{
   clientInstance.onAnyMessage((msg)=>{
