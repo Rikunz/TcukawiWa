@@ -14,4 +14,8 @@ router.get("/", function(req:Express.Request, res:Express.Response, next?:Expres
   res.render("index", {uptime: `uptime: ${days}d ${hours}h ${minutes}m ${seconds}s`, commands: cmdList});
 });
 
+router.get("/confess", function(req:Express.Request, res:Express.Response, next?:Express.NextFunction) {
+  res.render("confess");
+});
+
 export default router;
