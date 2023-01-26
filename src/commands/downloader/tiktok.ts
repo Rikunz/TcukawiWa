@@ -12,5 +12,5 @@ export async function run(client:Client, message:Message) {
 }
 
 export const name = "tiktok";
-export const description = "download instagram content";
+export const description = "download tiktok content";
 export const alias = ["ttdl", "tikdl"];
