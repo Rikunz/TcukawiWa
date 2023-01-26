@@ -8,7 +8,8 @@ export async function run(client:Client, message:Message) {
     return client.clientInstances!.sendText(message.chatId, "Error has been found");
   }
 
-  client.clientInstances?.sendFileFromUrl(message.chatId, resTiktok.WM, "tiktok", resTiktok.caption );
+  client.clientInstances?.sendFileFromUrl(message.chatId, resTiktok.noWM, "tiktok", resTiktok.caption );
+  client.clientInstances?.sendImage(message.chatId, resTiktok.noWM, "tiktok", resTiktok.caption );
 }
 
 export const name = "tiktok";
