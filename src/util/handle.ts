@@ -5,12 +5,12 @@ import {Client} from "./extend/Client.js";
 
 export async function LoadCommands() {
   const commands = new Collection<string, commandInterface>();
-  const dirs = readdirSync("./output/commands/", {
+  const dirs = readdirSync("./dist/commands/", {
     withFileTypes: true,
   }).filter((dirent) => dirent.isDirectory()).map((dirent) => dirent.name);
 
   for (const folder of dirs) {
-    for (const file of readdirSync("./output/commands/" + folder).filter((file) => file.endsWith(".ts") || file.endsWith(".js"))) {
+    for (const file of readdirSync("./dist/commands/" + folder).filter((file) => file.endsWith(".ts") || file.endsWith(".js"))) {
       const command = await import(`../commands/${folder}/${file}`);
       commands.set(command.name.toLowerCase(), {
         name: command.name.toLowerCase(),
