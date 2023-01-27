@@ -9,7 +9,7 @@
     "copy-files": "copyfiles -u 1 src/webView/public/**/* src/webView/views/* dist/",
     "build": "npm run clean && tsc && npm run copy-files",
     "start": "npm run build && node dist/index.js",
-    "loadCmd": "npm run build && node output/loadWebsiteCmds.js",
+    "loadCmd": "npm run build && node dist/loadWebsiteCmds.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
