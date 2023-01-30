@@ -15,7 +15,7 @@ jobs:
       with:
         node-version: 14
     - name: Install dependencies
-      run: npm i
+      run: npm i @discordjs/collection
     - name: loadCmd
       run: npm run loadCmd
     - name: Deploy
