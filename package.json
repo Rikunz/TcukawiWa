@@ -8,9 +8,8 @@
     "clean": "rimraf dist/",
     "copy-files": "copyfiles -u 1 src/webView/public/**/* src/webView/views/* dist/",
     "build": "npm run clean && tsc && npm run copy-files",
-    "build:cmd": "tsc",
     "start": "npm run build && node dist/index.js",
-    "loadCmd": "npm run build:cmd && node dist/loadWebsiteCmds.js",
+    "loadCmd": "ta-node src/loadWebsiteCmds.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
