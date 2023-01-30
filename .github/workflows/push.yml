@@ -15,7 +15,7 @@ jobs:
       with:
         node-version: 14
     - name: Using tsnode
-      run: npm i ts-node --save-dev
+      run: npm i
     - name: loadCmd
       run: npm run loadCmd
     - name: Deploy
