@@ -32,7 +32,7 @@ export async function pinterest(url: string){
         return(chuaks("#dlSection > a").attr("href") as string);
       
     }catch(error){
-        throw new Error(error);
+        return "ERROR";
 
     }
 }
