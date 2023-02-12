@@ -6,8 +6,7 @@
   "type": "module",
   "scripts": {
     "clean": "rimraf dist/",
-    "copy-files": "copyfiles -u 1 src/webView/public/**/* src/webView/views/* dist/",
-    "build": "npm run clean && tsc && npm run copy-files",
+    "build": "npm run clean && tsc",
     "start": "npm run build && node dist/index.js",
     "loadCmd": "npm run build && node dist/loadWebsiteCmds.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -38,9 +37,7 @@
     "axios": "^0.27.2",
     "copyfiles": "^2.4.1",
     "dotenv": "^16.0.1",
-    "ejs": "^3.1.8",
     "enkanetwork": "^1.2.5",
-    "express": "^4.18.2",
     "fast-speedtest-api": "github:honzahommer/fast-speedtest-api",
     "ffmpeg-static": "^5.1.0",
     "fluent-ffmpeg": "^2.1.2",

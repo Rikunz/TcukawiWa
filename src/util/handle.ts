@@ -27,29 +27,6 @@ export async function LoadCommands() {
 }
 
 
-export async function LoadCommandsNoCollection() {
-  const cmds = [];
-  const dirs = readdirSync("./dist/commands/", {
-    withFileTypes: true,
-  }).filter((dirent) => dirent.isDirectory()).map((dirent) => dirent.name);
-
-  for (const folder of dirs) {
-    for (const file of readdirSync("./dist/commands/" + folder).filter((file) => file.endsWith(".ts") || file.endsWith(".js"))) {
-      const command = await import(`../commands/${folder}/${file}`);
-      cmds.push({
-        name: command.name.toLowerCase(),
-        alias: command.alias?.map((c:string) => c.toLowerCase()) || [],
-        category: folder,
-        filepath: file,
-        description: command.description || "",
-        run: command.run,
-      } as commandInterface);
-    }
-  }
-  console.log("[Handler]"+ cmds.length + " Loaded");
-  return cmds;
-}
-
 export interface commandInterface {
     name: string
     alias: string[]
