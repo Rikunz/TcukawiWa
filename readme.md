@@ -6,6 +6,17 @@ TcukawiWa is an open-source Whatsapp bot built using [@open-wa/wa-automate](http
 
 A full list of available commands can be found at https://tcukawi.tech/Tcukawi-WebCommands/. This list is regularly updated to include new features and functionality. If you would like to suggest a new command or feature, feel free to open an issue or make a pull request.
 
+
+## Ubuntu/Linux Installation Note
+
+For a better experience running TcukawiWa on Ubuntu/Linux, it is recommended to install `./chrome/google-chrome-stable_current_amd64.deb` using `apt install`. This will ensure that all dependencies required by @open-wa/wa-automate are properly installed and the bot runs smoothly.
+
+To install the package, run the following command in your terminal:
+
+```
+sudo apt install ./chrome/google-chrome-stable_current_amd64.deb
+```
+
 ## Installation
 
 Installing TcukawiWa is easy, simply follow these steps:
