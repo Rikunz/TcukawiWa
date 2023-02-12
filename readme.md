@@ -2,6 +2,10 @@
 
 TcukawiWa is an open-source Whatsapp bot built using [@open-wa/wa-automate](https://github.com/open-wa/wa-automate) and [@discordjs/collection](https://github.com/discordjs/collection) for the command handler. It is designed to automate various tasks and help you interact with your contacts on Whatsapp in a convenient and efficient manner.
 
+## Command List
+
+A full list of available commands can be found at https://tcukawi.tech/Tcukawi-WebCommands/. This list is regularly updated to include new features and functionality. If you would like to suggest a new command or feature, feel free to open an issue or make a pull request.
+
 ## Installation
 
 Installing TcukawiWa is easy, simply follow these steps:
