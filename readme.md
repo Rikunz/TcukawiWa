@@ -28,7 +28,7 @@ Installing TcukawiWa is easy, simply follow these steps:
    - Secret (optional) - for the #genshinclaim command, should be in the format `{"env":{"token":"token","account_id":"id","uid":"uid"}}`
    - Licenses - @open-wa licenses that you have bought/obtained
    - MongoURL - the MongoDB URL to connect to your database
-   - OPENAI - the OpenAI API key obtained from https://openai.com/api/ to use the #ai command
+   - OPENAI_API_KEY - the OpenAI API key obtained from https://openai.com/api/ to use the #ai command
    - Sauce_API - the SauceNao API key obtained from https://saucenao.com/user.php to use the #sauce command
 5. Start the bot by running `npm run start`
 
