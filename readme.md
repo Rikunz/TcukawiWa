@@ -36,6 +36,42 @@ Installing TcukawiWa is easy, simply follow these steps:
 
 TcukawiWa is built using [Node.js](https://nodejs.org/), a JavaScript runtime environment, and [@open-wa/wa-automate](https://github.com/open-wa/wa-automate), a library for automating Whatsapp chats.
 
+# Creating New Commands
+
+To create a new command in Raw MD, you need to follow these simple steps:
+
+1. Go to the `src/commands/` directory and find or create an appropriate folder for the category of the command you want to add.
+
+2. In the folder, create a new file named `command.ts`.
+
+3. Export the following variables in the file:
+
+```ts
+export const name = ""; // name is what will be used on (PREFIX)name
+export const description = ""; // description is what will be shown on the help command
+export const alias = []; // Optional which can be used as an alternative name
+```
+
+4. Import the following:
+
+```ts
+import {Message} from "@open-wa/wa-automate";
+import {Client} from "../../util/extend/Client";
+```
+
+5. Export a function that will execute the command. The template for the function should look like this:
+
+```ts
+export async function run(client:Client, message:Message) {
+// Your code here
+}
+```
+
+6. Your function should ideally return `void`.
+
+Once you have completed these steps, your command is ready to use. You can now use it in the chat by typing `PREFIX` followed by the name of the command. If you want to see a list of available commands, you can type `PREFIX help` in the chat.
+
+
 ## Contributions
 
 TcukawiWa is an open-source project and contributions are welcome. If you would like to contribute, please follow these steps:
