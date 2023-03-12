@@ -5,15 +5,58 @@ import { daring } from "../../util/daring.js";
 export async function run(client: Client, message: Message) {
     const { args } = client.parseMessage(message);
     const data = await daring(args[0]);
+    const datasend = caption(data);
+
     client.clientInstances?.sendText(message.chatId, data);
 }
 
 function caption(data: any) {
-    const allcapt = []
+    const allcapt = [];
     for (var id in data) {
-
+        if (data.jenis.search("Tugas") != -1) {
+            allcapt.push(
+                `Id = ${id} \n
+            Jenis = ${data.Jenis} \n
+            Deskripsi = ${data.Deskripsi} \n
+            Dosen = ${data.Dosen} \n
+            Jurusan = ${data.Jurusan} \n
+            Matkul = ${data.Matkul} \n
+            Status = ${data.Status} \n
+            Waktu Mulai = ${data["Waktu mulai"]}
+            `);
+        }
+        else if (data.jenis.search("Meeting") != -1) {
+            allcapt.push(
+                `Id = ${id} \n
+            Jenis = ${data.Jenis} \n
+            Bentuk Pembelajara = ${data["Bentuk Pembelajaran"]} \n
+            Deskripsi = ${data.Deskripsi} \n
+            Dosen = ${data.Dosen} \n
+            Indikator Kemampuan = ${data["Indikator Kemampuan"]} \n
+            Jurusan = ${data.Jurusan} \n
+            Link = ${data.Link ? data.link : ""} \n
+            Materi Perkuliahan = ${data["Materi Perkuliahan"]} \n
+            Matkul = ${data.Matkul} \n
+            Status = ${data.Status} \n
+            Waktu Mulai = ${data["Waktu mulai"]}
+            Waktu Selesai = ${data["Waktu selesai"]}
+            `);
+        }
+        else if (data.jenis.search("Meeting") != -1) {
+            allcapt.push(
+                `Id = ${id} \n
+                Jenis = ${data.Jenis} \n
+                Jurusan = ${data.Jurusan} \n
+                Matkul = ${data.Matkul} \n
+                Nama Pemgirim = ${data["Nama Pengirim"]} \n
+                Status = ${data.Status}s
+            `);
+        }
     }
+    return allcapt;
 }
+
+function
 
 export const name = "daring";
 export const description = "informasi daring";
