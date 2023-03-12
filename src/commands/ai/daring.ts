@@ -6,11 +6,11 @@ export async function run(client: Client, message: Message) {
     const { args } = client.parseMessage(message);
     const data = await daring(args[0]);
     const datasend = caption(data);
-    datasend.forEach(sendData)
+    datasend.forEach(sendData);
     function sendData(value: any) {
+        wait(2000);
         client.clientInstances?.sendText(message.chatId, value);
     }
-
 }
 
 function caption(data: any) {
@@ -58,6 +58,14 @@ function caption(data: any) {
     }
     return allcapt;
 }
+
+function wait(ms: number) {
+    var start = new Date().getTime();
+    var end = start;
+    while (end < start + ms) {
+        end = new Date().getTime();
+    }
+};
 
 export const name = "daring";
 export const description = "informasi daring";
