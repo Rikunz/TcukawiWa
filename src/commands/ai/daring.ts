@@ -69,4 +69,4 @@ function wait(ms: number) {
 
 export const name = "daring";
 export const description = "informasi daring";
-export const alias = ["daring"];
+export const alias = ["daringinfo"];
