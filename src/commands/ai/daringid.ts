@@ -11,4 +11,4 @@ export async function run(client: Client, message: Message) {
 
 export const name = "daring";
 export const description = "informasi daring";
-export const alias = ["daring"];
+export const alias = ["daringdocument"];

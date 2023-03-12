@@ -4,12 +4,17 @@ import { daring } from "../../util/daring.js";
 
 export async function run(client: Client, message: Message) {
     const { args } = client.parseMessage(message);
-    const data = await daring(args[0]);
-    const datasend = caption(data);
-    datasend.forEach(sendData);
-    function sendData(value: any) {
-        wait(2000);
-        client.clientInstances?.sendText(message.chatId, value);
+    if (args[0] == "cek") {
+        const data = await daring(args[0]);
+        const datasend = caption(data);
+        datasend.forEach(sendData);
+        function sendData(value: any) {
+            wait(2000);
+            client.clientInstances?.sendText(message.chatId, value);
+        }
+    } else {
+        const data = await daring(args[0]);
+        client.clientInstances?.sendText(message.chatId, JSON.stringify(data));
     }
 }
 
@@ -69,4 +74,4 @@ function wait(ms: number) {
 
 export const name = "daring";
 export const description = "informasi daring";
-export const alias = ["daringinfo"];
+export const alias = ["daring"];
