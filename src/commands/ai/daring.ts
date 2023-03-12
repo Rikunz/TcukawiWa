@@ -4,7 +4,6 @@ import { daring } from "../../util/daring.js";
 
 export async function run(client: Client, message: Message) {
     const { args } = client.parseMessage(message);
-    console.log(args[0]);
     const data = await daring(args[0]);
     const datasend = caption(data);
     datasend.forEach(sendData);
