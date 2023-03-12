@@ -8,6 +8,12 @@ export async function run(client: Client, message: Message) {
     client.clientInstances?.sendText(message.chatId, data);
 }
 
+function caption(data: any) {
+    for (var id in data) {
+
+    }
+}
+
 export const name = "daring";
 export const description = "informasi daring";
 export const alias = ["daring"];
