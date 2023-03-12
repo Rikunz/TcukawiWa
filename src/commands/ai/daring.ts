@@ -53,7 +53,7 @@ function caption(data: any) {
                 Jurusan = ${data.Jurusan} \n
                 Matkul = ${data.Matkul} \n
                 Nama Pemgirim = ${data["Nama Pengirim"]} \n
-                Status = ${data.Status}s
+                Status = ${data.Status}
             `);
         }
     }
@@ -70,4 +70,4 @@ function wait(ms: number) {
 
 export const name = "daring";
 export const description = "informasi daring";
-export const alias = ["daringinfo"];
+export const alias = ["daring"];
