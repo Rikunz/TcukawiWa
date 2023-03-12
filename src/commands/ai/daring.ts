@@ -9,6 +9,7 @@ export async function run(client: Client, message: Message) {
 }
 
 function caption(data: any) {
+    const allcapt = []
     for (var id in data) {
 
     }
