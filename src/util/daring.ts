@@ -5,6 +5,5 @@ export async function daring(command: string) {
         method: "GET"
     });
     const datasend = response.data;
-    console.log(datasend);
     return datasend;
 }
