@@ -20,6 +20,9 @@ function caption(data: any) {
         if (jenis.search("Tugas") != -1) {
             allcapt.push([`*Id =* ${id}\n*Jenis =* ${jenis}\n*Deskripsi =* ${data[id].Deskripsi}\n*Dosen =* ${data[id].Dosen}\n*Jurusan =* ${data[id].Jurusan}\n*Matkul =* ${data[id].Matkul}\n*Status =* ${data[id].Status}\n*Waktu Mulai =* ${data[id]["Waktu mulai"]}\n*Waktu Post =* ${data[id].waktu_post}`, data[id].ss_link]);
         }
+        else if (jenis.search("Diskusi") != -1) {
+            allcapt.push([`*Id =* ${id}\n*Jenis =* ${jenis}\n*Bentuk Pembelajara =* ${data[id]["Bentuk Pembelajaran"]}\n*Deskripsi =* ${data[id].Deskripsi}\n*Dosen =* ${data[id].Dosen}\n*Indikator Kemampuan =* ${data[id]["Indikator Kemampuan"]}\n*Jurusan =* ${data[id].Jurusan}\n*Link =* ${data[id].Link ? data[id].Link : ""}\n*Materi Perkuliahan =* ${data[id]["Materi Perkuliahan"]}\n*Matkul =* ${data[id].Matkul}\n*Status =* ${data[id].Status}\n*Waktu Mulai =* ${data[id]["Waktu mulai  "]}\n*Waktu Selesai =* ${data[id]["Waktu selesai  "]}\n*Waktu Post =* ${data[id].waktu_post}`, data[id].ss_link]);
+        }
         else if (jenis.search("Meeting") != -1) {
             allcapt.push([`*Id =* ${id}\n*Jenis =* ${jenis}\n*Bentuk Pembelajara =* ${data[id]["Bentuk Pembelajaran"]}\n*Deskripsi =* ${data[id].Deskripsi}\n*Dosen =* ${data[id].Dosen}\n*Indikator Kemampuan =* ${data[id]["Indikator Kemampuan"]}\n*Jurusan =* ${data[id].Jurusan}\n*Link =* ${data[id].Link ? data[id].Link : ""}\n*Materi Perkuliahan =* ${data[id]["Materi Perkuliahan"]}\n*Matkul =* ${data[id].Matkul}\n*Status =* ${data[id].Status}\n*Waktu Mulai =* ${data[id]["Waktu mulai  "]}\n*Waktu Selesai =* ${data[id]["Waktu selesai  "]}\n*Waktu Post =* ${data[id].waktu_post}`, data[id].ss_link]);
         }
